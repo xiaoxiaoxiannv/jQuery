@@ -21,6 +21,18 @@ window.jQuery = function (selectorOrArray) {
             }
             return this
         },
+        parent(){
+            const array = []
+            this.each((node)=>{
+                if(array.indexOf(node.parentNode)===-1){
+                    array.push(node.parentNode)
+                }
+            })
+            return jQuery(array)
+        },
+        print(){
+            console.log(elements)
+        },
         addClass(className) {
             for (let i = 0; i < elements.length; i++) {
                 elements[i].classList.add(className)
