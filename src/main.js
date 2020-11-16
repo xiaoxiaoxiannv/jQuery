@@ -1,2 +1,3 @@
-jQuery('.test').find('.child').addClass('red').end().addClass('yellow')
-
+const x =jQuery('.test')
+    .find('.child')
+x.each((div)=>console.log(div))

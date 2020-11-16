@@ -6,13 +6,6 @@ window.jQuery = function (selectorOrArray) {
         elements = selectorOrArray
     }
     return {
-        oldApi: selectorOrArray.oldApi,
-        addClass(className) {
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].classList.add(className)
-            }
-            return this
-        },
         find(selector){
             let array =[]
             for(let i =0;i<elements.length;i++){
@@ -22,8 +15,22 @@ window.jQuery = function (selectorOrArray) {
             array.oldApi = this
             return jQuery(array)
         },
+        each(fn){
+            for(let i =0;i<elements.length;i++){
+                fn.call(null,elements[i],i)
+            }
+            return this
+        },
+        addClass(className) {
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].classList.add(className)
+            }
+            return this
+        },
+        oldApi: selectorOrArray.oldApi,
         end(){
             return this.oldApi
-        }
+        },
+
     }
 }
