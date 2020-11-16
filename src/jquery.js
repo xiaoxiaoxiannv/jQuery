@@ -30,6 +30,13 @@ window.jQuery = function (selectorOrArray) {
             })
             return jQuery(array)
         },
+        children(){
+            const array = []
+            this.each((node)=>{
+                array.push(...node.children)
+            })
+            return jQuery(array)
+        },
         print(){
             console.log(elements)
         },
