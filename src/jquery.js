@@ -6,6 +6,7 @@ window.jQuery = function (selectorOrArray) {
         elements = selectorOrArray
     }
     return {
+        oldApi: selectorOrArray.oldApi,
         addClass(className) {
             for (let i = 0; i < elements.length; i++) {
                 elements[i].classList.add(className)
@@ -18,7 +19,11 @@ window.jQuery = function (selectorOrArray) {
                 const elements2 = Array.from(elements[i].querySelectorAll(selector))
                 array = array.concat(elements2)
             }
+            array.oldApi = this
             return jQuery(array)
+        },
+        end(){
+            return this.oldApi
         }
     }
 }
