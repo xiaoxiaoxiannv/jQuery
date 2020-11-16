@@ -1,1 +1,2 @@
-jQuery('.test').addClass('red').addClass('blue')
+jQuery('.test').find('.child').addClass('red')
+
